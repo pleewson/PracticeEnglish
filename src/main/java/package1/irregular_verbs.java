@@ -15,214 +15,214 @@ public class irregular_verbs {
         }
     }
 
-    static String[][] irregularVerbs = new String [41][4];
+    static String[][] irregularVerbsArray = new String [41][4];
 
         static {
 
-            irregularVerbs[0][0] = "be";
-            irregularVerbs[0][1] = "was/were";
-            irregularVerbs[0][2] = "been";
-            irregularVerbs[0][3] = "być";
+            irregularVerbsArray[0][0] = "be";
+            irregularVerbsArray[0][1] = "was/were";
+            irregularVerbsArray[0][2] = "been";
+            irregularVerbsArray[0][3] = "być";
 
-            irregularVerbs[1][0] = "become";
-            irregularVerbs[1][1] = "became";
-            irregularVerbs[1][2] = "become";
-            irregularVerbs[1][3] = "stawać się";
+            irregularVerbsArray[1][0] = "become";
+            irregularVerbsArray[1][1] = "became";
+            irregularVerbsArray[1][2] = "become";
+            irregularVerbsArray[1][3] = "stawać się";
 
-            irregularVerbs[2][0] = "begin";
-            irregularVerbs[2][1] = "began";
-            irregularVerbs[2][2] = "begun";
-            irregularVerbs[2][3] = "zaczynać";
+            irregularVerbsArray[2][0] = "begin";
+            irregularVerbsArray[2][1] = "began";
+            irregularVerbsArray[2][2] = "begun";
+            irregularVerbsArray[2][3] = "zaczynać";
 
-            irregularVerbs[3][0] = "break";
-            irregularVerbs[3][1] = "broke";
-            irregularVerbs[3][2] = "broken";
-            irregularVerbs[3][3] = "łamać";
+            irregularVerbsArray[3][0] = "break";
+            irregularVerbsArray[3][1] = "broke";
+            irregularVerbsArray[3][2] = "broken";
+            irregularVerbsArray[3][3] = "łamać";
 
-            irregularVerbs[4][0] = "bring";
-            irregularVerbs[4][1] = "brought";
-            irregularVerbs[4][2] = "brought";
-            irregularVerbs[4][3] = "przynosić";
+            irregularVerbsArray[4][0] = "bring";
+            irregularVerbsArray[4][1] = "brought";
+            irregularVerbsArray[4][2] = "brought";
+            irregularVerbsArray[4][3] = "przynosić";
 
-            irregularVerbs[5][0] = "build";
-            irregularVerbs[5][1] = "built";
-            irregularVerbs[5][2] = "built";
-            irregularVerbs[5][3] = "budować";
+            irregularVerbsArray[5][0] = "build";
+            irregularVerbsArray[5][1] = "built";
+            irregularVerbsArray[5][2] = "built";
+            irregularVerbsArray[5][3] = "budować";
 
-            irregularVerbs[6][0] = "buy";
-            irregularVerbs[6][1] = "bought";
-            irregularVerbs[6][2] = "bought";
-            irregularVerbs[6][3] = "kupować";
+            irregularVerbsArray[6][0] = "buy";
+            irregularVerbsArray[6][1] = "bought";
+            irregularVerbsArray[6][2] = "bought";
+            irregularVerbsArray[6][3] = "kupować";
 
-            irregularVerbs[7][0] = "catch";
-            irregularVerbs[7][1] = "cought";
-            irregularVerbs[7][2] = "cought";
-            irregularVerbs[7][3] = "łapać";
+            irregularVerbsArray[7][0] = "catch";
+            irregularVerbsArray[7][1] = "cought";
+            irregularVerbsArray[7][2] = "cought";
+            irregularVerbsArray[7][3] = "łapać";
 
-            irregularVerbs[8][0] = "choose";
-            irregularVerbs[8][1] = "chose";
-            irregularVerbs[8][2] = "chosen";
-            irregularVerbs[8][3] = "wybierać";
+            irregularVerbsArray[8][0] = "choose";
+            irregularVerbsArray[8][1] = "chose";
+            irregularVerbsArray[8][2] = "chosen";
+            irregularVerbsArray[8][3] = "wybierać";
 
-            irregularVerbs[9][0] = "come";
-            irregularVerbs[9][1] = "came";
-            irregularVerbs[9][2] = "come";
-            irregularVerbs[9][3] = "przyjść";
+            irregularVerbsArray[9][0] = "come";
+            irregularVerbsArray[9][1] = "came";
+            irregularVerbsArray[9][2] = "come";
+            irregularVerbsArray[9][3] = "przyjść";
 
-            irregularVerbs[10][0] = "cost";
-            irregularVerbs[10][1] = "cost";
-            irregularVerbs[10][2] = "cost";
-            irregularVerbs[10][3] = "kosztować";
+            irregularVerbsArray[10][0] = "cost";
+            irregularVerbsArray[10][1] = "cost";
+            irregularVerbsArray[10][2] = "cost";
+            irregularVerbsArray[10][3] = "kosztować";
 
-            irregularVerbs[11][0] = "cut";
-            irregularVerbs[11][1] = "cut";
-            irregularVerbs[11][2] = "cut";
-            irregularVerbs[11][3] = "ciąć";
+            irregularVerbsArray[11][0] = "cut";
+            irregularVerbsArray[11][1] = "cut";
+            irregularVerbsArray[11][2] = "cut";
+            irregularVerbsArray[11][3] = "ciąć";
 
-            irregularVerbs[12][0] = "do";
-            irregularVerbs[12][1] = "did";
-            irregularVerbs[12][2] = "done";
-            irregularVerbs[12][3] = "robić";
+            irregularVerbsArray[12][0] = "do";
+            irregularVerbsArray[12][1] = "did";
+            irregularVerbsArray[12][2] = "done";
+            irregularVerbsArray[12][3] = "robić";
 
-            irregularVerbs[13][0] = "draw";
-            irregularVerbs[13][1] = "drew";
-            irregularVerbs[13][2] = "drawn";
-            irregularVerbs[13][3] = "rysować";
+            irregularVerbsArray[13][0] = "draw";
+            irregularVerbsArray[13][1] = "drew";
+            irregularVerbsArray[13][2] = "drawn";
+            irregularVerbsArray[13][3] = "rysować";
 
-            irregularVerbs[14][0] = "dream";
-            irregularVerbs[14][1] = "dreamed/dremt";
-            irregularVerbs[14][2] = "dreamed/dremt";
-            irregularVerbs[14][3] = "śnić";
+            irregularVerbsArray[14][0] = "dream";
+            irregularVerbsArray[14][1] = "dreamed/dremt";
+            irregularVerbsArray[14][2] = "dreamed/dremt";
+            irregularVerbsArray[14][3] = "śnić";
 
-            irregularVerbs[15][0] = "drink";
-            irregularVerbs[15][1] = "drank";
-            irregularVerbs[15][2] = "drunk";
-            irregularVerbs[15][3] = "pić";
+            irregularVerbsArray[15][0] = "drink";
+            irregularVerbsArray[15][1] = "drank";
+            irregularVerbsArray[15][2] = "drunk";
+            irregularVerbsArray[15][3] = "pić";
 
-            irregularVerbs[16][0] = "drive";
-            irregularVerbs[16][1] = "drove";
-            irregularVerbs[16][2] = "driven";
-            irregularVerbs[16][3] = "prowadzić";
+            irregularVerbsArray[16][0] = "drive";
+            irregularVerbsArray[16][1] = "drove";
+            irregularVerbsArray[16][2] = "driven";
+            irregularVerbsArray[16][3] = "prowadzić";
 
-            irregularVerbs[17][0] = "eat";
-            irregularVerbs[17][1] = "ate";
-            irregularVerbs[17][2] = "eaten";
-            irregularVerbs[17][3] = "jeść";
+            irregularVerbsArray[17][0] = "eat";
+            irregularVerbsArray[17][1] = "ate";
+            irregularVerbsArray[17][2] = "eaten";
+            irregularVerbsArray[17][3] = "jeść";
 
-            irregularVerbs[18][0] = "fall";
-            irregularVerbs[18][1] = "fell";
-            irregularVerbs[18][2] = "fallen";
-            irregularVerbs[18][3] = "padać";
+            irregularVerbsArray[18][0] = "fall";
+            irregularVerbsArray[18][1] = "fell";
+            irregularVerbsArray[18][2] = "fallen";
+            irregularVerbsArray[18][3] = "padać";
 
-            irregularVerbs[19][0] = "feel";
-            irregularVerbs[19][1] = "felt";
-            irregularVerbs[19][2] = "felt";
-            irregularVerbs[19][3] = "czuć";
+            irregularVerbsArray[19][0] = "feel";
+            irregularVerbsArray[19][1] = "felt";
+            irregularVerbsArray[19][2] = "felt";
+            irregularVerbsArray[19][3] = "czuć";
 
-            irregularVerbs[20][0] = "find";
-            irregularVerbs[20][1] = "found";
-            irregularVerbs[20][2] = "found";
-            irregularVerbs[20][3] = "znaleźć";
+            irregularVerbsArray[20][0] = "find";
+            irregularVerbsArray[20][1] = "found";
+            irregularVerbsArray[20][2] = "found";
+            irregularVerbsArray[20][3] = "znaleźć";
 
-            irregularVerbs[21][0] = "fly";
-            irregularVerbs[21][1] = "flew";
-            irregularVerbs[21][2] = "flown";
-            irregularVerbs[21][3] = "latać";
+            irregularVerbsArray[21][0] = "fly";
+            irregularVerbsArray[21][1] = "flew";
+            irregularVerbsArray[21][2] = "flown";
+            irregularVerbsArray[21][3] = "latać";
 
-            irregularVerbs[22][0] = "get";
-            irregularVerbs[22][1] = "got";
-            irregularVerbs[22][2] = "got";
-            irregularVerbs[22][3] = "dostawać";
+            irregularVerbsArray[22][0] = "get";
+            irregularVerbsArray[22][1] = "got";
+            irregularVerbsArray[22][2] = "got";
+            irregularVerbsArray[22][3] = "dostawać";
 
-            irregularVerbs[23][0] = "give";
-            irregularVerbs[23][1] = "gave";
-            irregularVerbs[23][2] = "given";
-            irregularVerbs[23][3] = "dawać";
+            irregularVerbsArray[23][0] = "give";
+            irregularVerbsArray[23][1] = "gave";
+            irregularVerbsArray[23][2] = "given";
+            irregularVerbsArray[23][3] = "dawać";
 
-            irregularVerbs[24][0] = "go";
-            irregularVerbs[24][1] = "went";
-            irregularVerbs[24][2] = "gone";
-            irregularVerbs[24][3] = "iść";
+            irregularVerbsArray[24][0] = "go";
+            irregularVerbsArray[24][1] = "went";
+            irregularVerbsArray[24][2] = "gone";
+            irregularVerbsArray[24][3] = "iść";
 
-            irregularVerbs[25][0] = "grow";
-            irregularVerbs[25][1] = "grew";
-            irregularVerbs[25][2] = "grown";
-            irregularVerbs[25][3] = "rosnąć";
+            irregularVerbsArray[25][0] = "grow";
+            irregularVerbsArray[25][1] = "grew";
+            irregularVerbsArray[25][2] = "grown";
+            irregularVerbsArray[25][3] = "rosnąć";
 
-            irregularVerbs[26][0] = "have";
-            irregularVerbs[26][1] = "had";
-            irregularVerbs[26][2] = "had";
-            irregularVerbs[26][3] = "mieć";
+            irregularVerbsArray[26][0] = "have";
+            irregularVerbsArray[26][1] = "had";
+            irregularVerbsArray[26][2] = "had";
+            irregularVerbsArray[26][3] = "mieć";
 
-            irregularVerbs[27][0] = "hear";
-            irregularVerbs[27][1] = "heard";
-            irregularVerbs[27][2] = "heard";
-            irregularVerbs[27][3] = "słyszeć";
+            irregularVerbsArray[27][0] = "hear";
+            irregularVerbsArray[27][1] = "heard";
+            irregularVerbsArray[27][2] = "heard";
+            irregularVerbsArray[27][3] = "słyszeć";
 
-            irregularVerbs[28][0] = "hit";
-            irregularVerbs[28][1] = "hit";
-            irregularVerbs[28][2] = "hit";
-            irregularVerbs[28][3] = "uderzać";
+            irregularVerbsArray[28][0] = "hit";
+            irregularVerbsArray[28][1] = "hit";
+            irregularVerbsArray[28][2] = "hit";
+            irregularVerbsArray[28][3] = "uderzać";
 
-            irregularVerbs[29][0] = "hold";
-            irregularVerbs[29][1] = "held";
-            irregularVerbs[29][2] = "held";
-            irregularVerbs[29][3] = "trzymać";
+            irregularVerbsArray[29][0] = "hold";
+            irregularVerbsArray[29][1] = "held";
+            irregularVerbsArray[29][2] = "held";
+            irregularVerbsArray[29][3] = "trzymać";
 
-            irregularVerbs[30][0] = "hurt";
-            irregularVerbs[30][1] = "hurt";
-            irregularVerbs[30][2] = "hurt";
-            irregularVerbs[30][3] = "ranić";
+            irregularVerbsArray[30][0] = "hurt";
+            irregularVerbsArray[30][1] = "hurt";
+            irregularVerbsArray[30][2] = "hurt";
+            irregularVerbsArray[30][3] = "ranić";
 
-            irregularVerbs[31][0] = "keep";
-            irregularVerbs[31][1] = "kept";
-            irregularVerbs[31][2] = "kept";
-            irregularVerbs[31][3] = "trzymać";
+            irregularVerbsArray[31][0] = "keep";
+            irregularVerbsArray[31][1] = "kept";
+            irregularVerbsArray[31][2] = "kept";
+            irregularVerbsArray[31][3] = "trzymać";
 
-            irregularVerbs[32][0] = "know";
-            irregularVerbs[32][1] = "knew";
-            irregularVerbs[32][2] = "known";
-            irregularVerbs[32][3] = "znać";
+            irregularVerbsArray[32][0] = "know";
+            irregularVerbsArray[32][1] = "knew";
+            irregularVerbsArray[32][2] = "known";
+            irregularVerbsArray[32][3] = "znać";
 
-            irregularVerbs[33][0] = "learn";
-            irregularVerbs[33][1] = "learned/learnt";
-            irregularVerbs[33][2] = "learned/learnt";
-            irregularVerbs[33][3] = "uczyć się";
+            irregularVerbsArray[33][0] = "learn";
+            irregularVerbsArray[33][1] = "learned/learnt";
+            irregularVerbsArray[33][2] = "learned/learnt";
+            irregularVerbsArray[33][3] = "uczyć się";
 
-            irregularVerbs[34][0] = "leave";
-            irregularVerbs[34][1] = "left";
-            irregularVerbs[34][2] = "left";
-            irregularVerbs[34][3] = "opuszczać";
+            irregularVerbsArray[34][0] = "leave";
+            irregularVerbsArray[34][1] = "left";
+            irregularVerbsArray[34][2] = "left";
+            irregularVerbsArray[34][3] = "opuszczać";
 
-            irregularVerbs[35][0] = "lend";
-            irregularVerbs[35][1] = "lent";
-            irregularVerbs[35][2] = "lent";
-            irregularVerbs[35][3] = "pożyczać";
+            irregularVerbsArray[35][0] = "lend";
+            irregularVerbsArray[35][1] = "lent";
+            irregularVerbsArray[35][2] = "lent";
+            irregularVerbsArray[35][3] = "pożyczać";
 
-            irregularVerbs[36][0] = "lose";
-            irregularVerbs[36][1] = "lost";
-            irregularVerbs[36][2] = "lost";
-            irregularVerbs[36][3] = "tracić/zgubić";
+            irregularVerbsArray[36][0] = "lose";
+            irregularVerbsArray[36][1] = "lost";
+            irregularVerbsArray[36][2] = "lost";
+            irregularVerbsArray[36][3] = "tracić/zgubić";
 
-            irregularVerbs[37][0] = "make";
-            irregularVerbs[37][1] = "made";
-            irregularVerbs[37][2] = "made";
-            irregularVerbs[37][3] = "robić/wykonywać";
+            irregularVerbsArray[37][0] = "make";
+            irregularVerbsArray[37][1] = "made";
+            irregularVerbsArray[37][2] = "made";
+            irregularVerbsArray[37][3] = "robić/wykonywać";
 
-            irregularVerbs[38][0] = "mean";
-            irregularVerbs[38][1] = "meant";
-            irregularVerbs[38][2] = "meant";
-            irregularVerbs[38][3] = "znaczyć/mieć na myśli";
+            irregularVerbsArray[38][0] = "mean";
+            irregularVerbsArray[38][1] = "meant";
+            irregularVerbsArray[38][2] = "meant";
+            irregularVerbsArray[38][3] = "znaczyć/mieć na myśli";
 
-            irregularVerbs[39][0] = "meet";
-            irregularVerbs[39][1] = "met";
-            irregularVerbs[39][2] = "met";
-            irregularVerbs[39][3] = "spotykać/poznać";
+            irregularVerbsArray[39][0] = "meet";
+            irregularVerbsArray[39][1] = "met";
+            irregularVerbsArray[39][2] = "met";
+            irregularVerbsArray[39][3] = "spotykać/poznać";
 
-            irregularVerbs[40][0] = "pay";
-            irregularVerbs[40][1] = "paid";
-            irregularVerbs[40][2] = "paid";
-            irregularVerbs[40][3] = "płacić";
+            irregularVerbsArray[40][0] = "pay";
+            irregularVerbsArray[40][1] = "paid";
+            irregularVerbsArray[40][2] = "paid";
+            irregularVerbsArray[40][3] = "płacić";
         }
     }
 
