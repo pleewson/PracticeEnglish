@@ -48,12 +48,12 @@ public class Methods {
             //print 1st verb  then you need to fill 2nd and 3rd verb if they are equals to [?][1] and [?][2] progress++ and remove
             //this value from Set.
             if (userInput1.equalsIgnoreCase(irrArr[setPossition][1]) && userInput2.equalsIgnoreCase(irrArr[setPossition][2])) {
-                System.out.println("good");
+                System.out.println("Good Answer.");
                 iterator.remove();
                 progress++;
 
             } else {
-                System.out.println("not okey");
+                System.out.println("Not Good Answer.");
                 wrongAnswers++;
             }
 
