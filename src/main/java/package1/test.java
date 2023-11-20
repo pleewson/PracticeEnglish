@@ -1,11 +1,9 @@
 package package1;
 
-import java.util.*;
-
 public class test {
     public static void main(String[] args) {
 
-        System.out.println("length irrArr -> " + irregular_verbs.irregularVerbsArray.length);
+        System.out.println("length irrArr -> " + irregularVerbs.irregularVerbsArray.length);
 
         Methods.fillSecondThirdVerbALL();
 

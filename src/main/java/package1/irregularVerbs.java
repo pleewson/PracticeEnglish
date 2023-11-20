@@ -1,21 +1,9 @@
 package package1;
 
-public class irregular_verbs {
-    public static void main(String[] args) {
-    }
+public class irregularVerbs {
 
-    public static void print_irrArray(String irrArr[][]) {
-        System.out.println("I.F  II.F  III.F  PL" + '\n');
-
-        for (int i = 0; i < irrArr.length; i++) {
-            for (int j = 0; j < irrArr[i].length; j++) {
-                System.out.print(irrArr[i][j] + "  ");
-            }
-            System.out.println();
-        }
-    }
-
-    static String[][] irregularVerbsArray = new String [41][4];
+    static String[][] irregularVerbsArray = new String [3][4];
+    //if you comment array indexes change value of line[] value above
 
         static {
 
@@ -34,7 +22,7 @@ public class irregular_verbs {
             irregularVerbsArray[2][2] = "begun";
             irregularVerbsArray[2][3] = "zaczynać";
 
-            irregularVerbsArray[3][0] = "break";
+           /* irregularVerbsArray[3][0] = "break";
             irregularVerbsArray[3][1] = "broke";
             irregularVerbsArray[3][2] = "broken";
             irregularVerbsArray[3][3] = "łamać";
@@ -223,6 +211,8 @@ public class irregular_verbs {
             irregularVerbsArray[40][1] = "paid";
             irregularVerbsArray[40][2] = "paid";
             irregularVerbsArray[40][3] = "płacić";
+
+            */
         }
     }
 
