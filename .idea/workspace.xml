@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1deee699-5616-415f-81db-79b86b7ab8ea" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/package1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/package1/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/package1/Methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/package1/Methods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/package1/irregular_verbs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/package1/irregularVerbs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/package1/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/package1/test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +52,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.test">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="package1.Main" />
       <module name="irregular_verbs" />
@@ -97,8 +94,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.test" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.test" />
         <item itemvalue="Application.irregularVerbs" />
       </list>
     </recent_temporary>
@@ -115,7 +112,7 @@
       <workItem from="1700154780065" duration="6997000" />
       <workItem from="1700261487112" duration="15000" />
       <workItem from="1700424087649" duration="17000" />
-      <workItem from="1700475013237" duration="4357000" />
+      <workItem from="1700475013237" duration="5037000" />
     </task>
     <servers />
   </component>
@@ -124,16 +121,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/package1/Methods.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

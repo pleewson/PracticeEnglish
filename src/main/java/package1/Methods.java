@@ -61,15 +61,15 @@ public class Methods {
 //            if(progress > 0) {
 //                percentProgress = (progress / percentProgress) * 100;
 //            }
+//            System.out.println("Progress: " +percentProgress + "%");
 
-            System.out.println("Progress: " +percentProgress + "%");
         }
     }
 
 
     //this method print whole array (PL-version included)
     public static void printIrrArray(String irrArr[][]) {
-        System.out.println("I.F  II.F  III.F  PL" + '\n');
+        System.out.println("I.F     II.F     III.F     PL" + '\n');
 
         for (int i = 0; i < irrArr.length; i++) {
             for (int j = 0; j < irrArr[i].length; j++) {
