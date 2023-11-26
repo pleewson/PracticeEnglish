@@ -20,6 +20,7 @@ public class Main {
         switch (chooseMethd) {
             case 1 -> Methods.printIrrArray((irregularVerbs.irregularVerbsArray));
             case 2 -> Methods.fillSecondThirdVerbALL();
+            //case 3 -> method that allow user to choose how many irregularVerbs he want try
         }
 
     }
