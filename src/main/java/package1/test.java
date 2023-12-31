@@ -8,7 +8,7 @@ public class test {
         Methods.fillSecondThirdVerbALL();
 
         System.out.println();
-        
+
         System.out.println("Well done");
 
 
