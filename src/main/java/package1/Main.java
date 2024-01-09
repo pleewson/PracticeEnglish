@@ -25,7 +25,7 @@ public class Main {
 
     }
 }
-//365challenge
+//NOTE: coderslab lesson. finished OOP.
 
 //Methods.printIrrArray(irregularVerbs.irregularVerbsArray);
 
