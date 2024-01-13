@@ -25,7 +25,7 @@ public class Main {
 
     }
 }
-//NOTE: finished all homework tasks. +lesson from web
+//NOTE: sql-lesson1 coderslab
 
 //Methods.printIrrArray(irregularVerbs.irregularVerbsArray);
 
