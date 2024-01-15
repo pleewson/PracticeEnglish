@@ -25,7 +25,7 @@ public class Main {
 
     }
 }
-//NOTE: sql-lesson2 coderslab
+//SQL - ex -monday
 
 //Methods.printIrrArray(irregularVerbs.irregularVerbsArray);
 
