@@ -24,8 +24,7 @@ public class Main {
         }
     }
 }
-
-//SQL - ex -monday
+//SQL - thursday
 
 //Methods.printIrrArray(irregularVerbs.irregularVerbsArray);
 
