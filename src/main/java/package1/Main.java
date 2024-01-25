@@ -24,7 +24,8 @@ public class Main {
         }
     }
 }
-//SQL - thursday
+
+//Java- SQL -interaction
 
 //Methods.printIrrArray(irregularVerbs.irregularVerbsArray);
 
