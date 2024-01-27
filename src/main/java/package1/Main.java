@@ -25,8 +25,7 @@ public class Main {
     }
 }
 
-
-//Java- SQL -interaction-Final
+//JS - syntax, basics
 
 //Methods.printIrrArray(irregularVerbs.irregularVerbsArray);
 
