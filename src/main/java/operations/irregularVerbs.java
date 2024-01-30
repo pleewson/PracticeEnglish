@@ -1,8 +1,9 @@
-package package1;
+package operations;
 
 public class irregularVerbs {
 
-    static String[][] irregularVerbsArray = new String [3][4];
+    //set as protected later
+    public static String[][] irregularVerbsArray = new String [3][4];
     //if you comment array indexes change value of line[] value above
 
         static {

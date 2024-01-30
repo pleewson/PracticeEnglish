@@ -1,4 +1,7 @@
-package package1;
+package application;
+
+import operations.Methods;
+import operations.irregularVerbs;
 
 import java.util.Scanner;
 
@@ -10,7 +13,7 @@ public class Main {
         System.out.println("""
                 Hello!:)
                 Choose what kind version of irregular verbs you are interested:
-                
+                                
                 1. Show me all irregular verbs with translation (PL)
                 2. Let's test myself and fill missing irregular verbs in 2nd and 3rd form.
                 """);
@@ -18,7 +21,7 @@ public class Main {
         int chooseMethd = scan.nextInt();
 
         switch (chooseMethd) {
-            case 1 -> Methods.printIrrArray((irregularVerbs.irregularVerbsArray));
+            case 1 -> Methods.printIrrArray();
             case 2 -> Methods.fillSecondThirdVerbALL();
             //case 3 -> method that allow user to choose how many irregularVerbs he want try
         }
