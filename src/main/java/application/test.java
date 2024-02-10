@@ -24,7 +24,8 @@ public class test {
         String userAnswer = scan.next();
 
 
-        //servlets cl
+
+        //servlets cl2
         //jak rozdzielic was/were
         for (String poprawna : poprawnaOdp) {
             if (poprawna.trim().equals(userAnswer)) {
