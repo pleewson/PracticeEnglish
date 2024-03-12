@@ -1,7 +1,6 @@
 package application;
 
 import operations.Methods;
-import operations.irregularVerbs;
 
 import java.util.Scanner;
 
@@ -21,14 +20,12 @@ public class Main {
         int chooseMethd = scan.nextInt();
 
         switch (chooseMethd) {
-            case 1 -> Methods.printIrrArray();
-            case 2 -> Methods.fillSecondThirdVerbALL();
+            case 1 -> Methods.printAllIrregularVerbsPL();
+            case 2 -> Methods.fillSecondAndThirdVerbALL();
             //case 3 -> method that allow user to choose how many irregularVerbs he want try
         }
     }
 }
-
-//JS - syntax, basics
 
 //Methods.printIrrArray(irregularVerbs.irregularVerbsArray);
 

@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1deee699-5616-415f-81db-79b86b7ab8ea" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/operations/Methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/operations/Methods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/operations/MethodsUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/operations/MethodsUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/operations/irregularVerbs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/operations/irregularVerbs.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +63,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Application.test">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="application.Main" />
       <module name="irregular_verbs" />
@@ -101,8 +105,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.test" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.test" />
         <item itemvalue="Application.irregularVerbs" />
       </list>
     </recent_temporary>
@@ -140,6 +144,7 @@
       <workItem from="1706608106399" duration="3723000" />
       <workItem from="1707512555422" duration="17000" />
       <workItem from="1707605941642" duration="10000" />
+      <workItem from="1710270808286" duration="6968000" />
     </task>
     <servers />
   </component>
@@ -154,12 +159,22 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/operations/Methods.java</url>
-          <line>14</line>
-          <properties class="application.Methods" method="fillSecondThirdVerbALL">
+          <line>15</line>
+          <properties class="operations.Methods" method="fillSecondAndThirdVerbALL">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/application/Main.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/operations/Methods.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

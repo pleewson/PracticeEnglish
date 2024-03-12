@@ -1,46 +1,18 @@
 package application;
-import java.util.Arrays;
-import java.util.Scanner;
+
+import java.util.*;
 
 import static operations.irregularVerbs.*;
 
 public class test {
     public static void main(String[] args) {
 
-//        System.out.println(irregularVerbsArray[0][1]);
+        Set<Integer> test = new HashSet<>();
+        test.add(1);
+        test.remove(1);
 
-        Scanner scan = new Scanner(System.in);
-        String[] poprawnaOdp = irregularVerbsArray[0][1].trim().split("/");
-
-        System.out.println(Arrays.toString(poprawnaOdp));
-
-        String userAnswer = scan.next();
-
-
-
-        //servlets cl2
-        //jak rozdzielic was/were
-        for (String poprawna : poprawnaOdp) {
-            if (poprawna.trim().equals(userAnswer)) {
-                System.out.println("good");
-                break;
-            }
-        }
-
-
-//        Set<Integer> razdwatrzy = new LinkedHashSet<>();
-//
-//        while(razdwatrzy.size() < 10){
-//            Random rnd = new Random();
-//            int randomNr = rnd.nextInt(10);
-//            razdwatrzy.add(randomNr);
-//        }
-//
-//        Iterator<Integer> iterator = razdwatrzy.iterator();
-//        while(iterator.hasNext()){
-//            System.out.println(iterator.next());
-//        }
-
+        System.out.println(test);
     }
 }
+
 

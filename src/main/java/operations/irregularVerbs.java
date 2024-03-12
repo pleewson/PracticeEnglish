@@ -1,10 +1,8 @@
 package operations;
 
 public class irregularVerbs {
-
-    //set as protected later
-    public static String[][] irregularVerbsArray = new String [3][4];
-    //if you comment array indexes change value of line[] value above
+    protected static String[][] irregularVerbsArray = new String [2][4];
+    //if you comment array indexes change value of array[] above
 
         static {
 
@@ -18,10 +16,10 @@ public class irregularVerbs {
             irregularVerbsArray[1][2] = "become";
             irregularVerbsArray[1][3] = "stawać się";
 
-            irregularVerbsArray[2][0] = "begin";
-            irregularVerbsArray[2][1] = "began";
-            irregularVerbsArray[2][2] = "begun";
-            irregularVerbsArray[2][3] = "zaczynać";
+//            irregularVerbsArray[2][0] = "begin";
+//            irregularVerbsArray[2][1] = "began";
+//            irregularVerbsArray[2][2] = "begun";
+//            irregularVerbsArray[2][3] = "zaczynać";
 
            /* irregularVerbsArray[3][0] = "break";
             irregularVerbsArray[3][1] = "broke";
