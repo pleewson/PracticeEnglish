@@ -1,12 +1,5 @@
 package application;
-
-import jdk.dynalink.Operation;
-import operations.Methods;
-import operations.irregularVerbs;
-
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 import static operations.irregularVerbs.*;
