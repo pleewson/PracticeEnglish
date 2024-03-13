@@ -1,20 +1,17 @@
 package operations;
 
-import java.util.Arrays;
-import java.util.LinkedHashSet;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 import static operations.Methods.*;
 import static operations.irregularVerbs.irregularVerbsArray;
 
 public class MethodsUtils {
 
-    protected static Set<Integer> setSetWithUniqueNumbers(int length) {
+    protected static Set<Integer> setSetWithUniqueNumbers(int limit) {
         Set<Integer> uniqueNumbers = new LinkedHashSet<>();
         Random rnd = new Random();
 
-        while (uniqueNumbers.size() < irrArr.length) {
+        while (uniqueNumbers.size() < limit) {
             int randomNumber = rnd.nextInt(irrArr.length);
             uniqueNumbers.add(randomNumber);
         }
@@ -39,8 +36,23 @@ public class MethodsUtils {
         }
     }
 
-    public static void printProgressInPercent() {
-        double progressInPercent = (progress / irrArr.length) * 100;
-        System.out.println("Progress: " + progressInPercent +"%");
+    public static void printProgressInPercent(int limit) {
+        double progressInPercent = (progress / limit) * 100;
+        System.out.println("Progress: " + progressInPercent + "%");
+    }
+
+    public static int enterLimit() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter number of irregular verbs that you want try: ");
+        while (!scan.hasNextInt()) {
+            System.out.println("Thats not a number.");
+            scan.next();
+            scan.hasNextInt();
+        }
+
+        int limit = scan.nextInt();
+        return limit;
     }
 }
+
+

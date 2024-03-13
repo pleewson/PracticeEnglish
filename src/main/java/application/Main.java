@@ -1,8 +1,6 @@
 package application;
-
-import operations.Methods;
-
 import java.util.Scanner;
+import static operations.Methods.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,14 +13,15 @@ public class Main {
                                 
                 1. Show me all irregular verbs with translation (PL)
                 2. Let's test myself and fill missing irregular verbs in 2nd and 3rd form.
+                3. Choose amount of irregular verbs to practice.
                 """);
 
         int chooseMethd = scan.nextInt();
 
         switch (chooseMethd) {
-            case 1 -> Methods.printAllIrregularVerbsPL();
-            case 2 -> Methods.fillSecondAndThirdVerbALL();
-            //case 3 -> method that allow user to choose how many irregularVerbs he want try
+            case 1 -> printAllIrregularVerbsPL();
+            case 2 -> fillSecondAndThirdVerbALL();
+            case 3 -> fillSecondAndThirdVerbWithLimit();
         }
     }
 }
