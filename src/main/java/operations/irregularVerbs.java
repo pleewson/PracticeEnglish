@@ -6,7 +6,7 @@ public class irregularVerbs {
 
         static {
 
-            //A2 bd
+            //A2 bd coderslab
             irregularVerbsArray[0][0] = "be";
             irregularVerbsArray[0][1] = "was/were";
             irregularVerbsArray[0][2] = "been";
