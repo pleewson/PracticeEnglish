@@ -5,6 +5,23 @@
     <title>All irregular verbs</title>
 </head>
 <body>
-there will be printed all irregular verbs
+
+<a href="/">
+    <button> HOME </button>
+</a></p>
+
+<p>Verb1     Verb2     Verb3     Polish</p>
+
+<div id="irregular-verbs-table">
+    <tr th:each="irregularVerbs : ${irregularVerbs}">
+        <td th:text="${irregularVerbs.getVerb1()}"  ></td>
+        <td th:text="${irregularVerbs.getVerb2()}"  ></td>
+        <td th:text="${irregularVerbs.getVerb3()}"  ></td>
+        <td th:text="${irregularVerbs.getVerbInPolish()}"></td>
+        </br>
+        </br>
+    </tr>
+</div>
+
 </body>
 </html>

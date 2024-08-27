@@ -1,8 +1,10 @@
 package com.plewa.irregular_verbs.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 @Entity
+@Getter
 @Table(name = "irregular_verbs")
 public class IrregularVerb {
 
