@@ -5,10 +5,7 @@ import com.plewa.irregular_verbs.repository.IrregularVerbRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 @Service
 @Slf4j
@@ -37,9 +34,32 @@ public class IrregularVerbService {
         return uniqueNumbers;
     }
 
-    public static void getProgressInPercent(int progress, int sizeOfIrregularVerbs) {
+
+    private List<IrregularVerb> getUniqueVerbsList(Set<Integer> uniqueNumbers) {
+        List<IrregularVerb> allIrregularVerbs = irregularVerbRepository.findAll();
+        List<IrregularVerb> uniqueVerbs = new ArrayList<>();
+
+        for (Integer randomNumber : uniqueNumbers) {
+            uniqueVerbs.add(allIrregularVerbs.get(randomNumber));
+        }
+
+        return uniqueVerbs;
+    }
+
+
+    public boolean checkIfProgressIs100(int progress, int sizeOfIrregularVerbs) {
+        double progressInPercent = getProgressInPercent(progress, sizeOfIrregularVerbs); //TODO think about this
+        if (progressInPercent == 100d) {
+            return true;
+        }
+        return false;
+    }
+
+    //set progress variable in session //TODO
+    public double getProgressInPercent(int progress, int sizeOfIrregularVerbs) {
         double progressInPercent = (progress / sizeOfIrregularVerbs) * 100;
         log.info("ProgressInPercent: {}", progressInPercent);
+        return progressInPercent;
     }
 
 }
