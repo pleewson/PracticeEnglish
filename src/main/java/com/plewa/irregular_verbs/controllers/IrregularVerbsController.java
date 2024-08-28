@@ -1,6 +1,7 @@
 package com.plewa.irregular_verbs.controllers;
 
 import com.plewa.irregular_verbs.service.IrregularVerbService;
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,7 +34,20 @@ public class IrregularVerbsController {
 
     @PostMapping("/fill2and3verb")
     @ResponseBody
-    public String fill2And3Verb(@RequestParam String limitVerbs) {
+    public String fill2And3Verb(@RequestParam int limitVerbs, HttpSession session) {
+        int progressNum;
+
+        if (session.getAttribute("progressNum") == null) {
+            progressNum = 0;
+            //should i save limitVerbs in session? think how to get all verbs after refreshing site. should i also save it in session storage?
+        } else {
+            progressNum = (int) session.getAttribute("progressNum");
+        }
+
+        if(irregularVerbService.checkIfProgressIs100(progressNum,limitVerbs)){
+            return "congratulations-page"; //TODO
+        }
+
         return "" + limitVerbs;
     }
 
