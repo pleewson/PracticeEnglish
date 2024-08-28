@@ -48,8 +48,7 @@ public class IrregularVerbService {
 
 
     public boolean checkIfProgressIs100(int progress, int sizeOfIrregularVerbs) {
-        double progressInPercent = getProgressInPercent(progress, sizeOfIrregularVerbs); //TODO think about this
-        if (progressInPercent == 100d) {
+        if (progress == sizeOfIrregularVerbs) {
             return true;
         }
         return false;
