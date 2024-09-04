@@ -2,7 +2,6 @@ package com.plewa.irregular_verbs.controllers;
 
 import com.plewa.irregular_verbs.entity.IrregularVerb;
 import com.plewa.irregular_verbs.service.IrregularVerbService;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -17,7 +16,7 @@ import java.util.List;
 @Controller
 public class IrregularVerbsController {
 
-    final Integer MAX_AMOUNT_VERBS = 69;
+    final static Integer MAX_AMOUNT_VERBS = 69;
     private IrregularVerbService irregularVerbService;
 
     public IrregularVerbsController(IrregularVerbService irregularVerbService) {
@@ -30,7 +29,6 @@ public class IrregularVerbsController {
         return "allverbs";
     }
 
-
     @GetMapping("/setLimit")
     public String getLimitPage() {
         return "limitdecide";
@@ -39,7 +37,7 @@ public class IrregularVerbsController {
     @PostMapping("/fill2and3verbPOST")
     public String fill2And3VerbPOST(@RequestParam int limitVerbs, HttpSession session) {
 
-        if (limitVerbs > MAX_AMOUNT_VERBS) {
+        if (limitVerbs <= 0 || limitVerbs > MAX_AMOUNT_VERBS) {
             return "limitdecide";
         }
 
@@ -56,19 +54,16 @@ public class IrregularVerbsController {
     }
 
     @GetMapping("/fill2and3verb")
-    public String fill2And3VerbGET(@RequestParam(defaultValue = "empty") String answer1, @RequestParam(defaultValue = "empty") String answer2, HttpSession session, Model model, HttpServletRequest request) {
+    public String fill2And3VerbGET(@RequestParam(defaultValue = "empty") String answer1, @RequestParam(defaultValue = "empty") String answer2, HttpSession session) {
         List<IrregularVerb> uniqueIrregularVerbs = (List<IrregularVerb>) session.getAttribute("uniqueIrregularVerbs");
+        IrregularVerb irregularVerb = (IrregularVerb) session.getAttribute("randomIrregularVerb");
         int progress = (int) session.getAttribute("progress");
 
-        log.info("{}progress", progress); // TODO delete
-        log.info("randomIrregularVerb {} ", session.getAttribute("randomIrregularVerb")); // TODO delete
-
-        IrregularVerb irregularVerb = (IrregularVerb) session.getAttribute("randomIrregularVerb");
         if (irregularVerb.getVerb2().equals(answer1) && irregularVerb.getVerb3().equals(answer2)) {
             uniqueIrregularVerbs.remove(irregularVerb);
             progress++;
 
-            if (uniqueIrregularVerbs.size() == 0) {
+            if (uniqueIrregularVerbs.isEmpty()) {
                 return "congratulations";
             }
 
@@ -77,7 +72,6 @@ public class IrregularVerbsController {
         }
 
         IrregularVerb randomIrregularVerb = irregularVerbService.getOneIrregularVerbFromUniqueList(uniqueIrregularVerbs);
-
         session.setAttribute("randomIrregularVerb", randomIrregularVerb);
 
         return "fillverbs_2and3_limit";
