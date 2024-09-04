@@ -10,15 +10,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
-import java.util.Set;
 
 @Slf4j
 @Controller
 public class IrregularVerbsController {
 
+    final Integer MAX_AMOUNT_VERBS = 69;
     private IrregularVerbService irregularVerbService;
 
     public IrregularVerbsController(IrregularVerbService irregularVerbService) {
@@ -39,40 +38,42 @@ public class IrregularVerbsController {
 
     @PostMapping("/fill2and3verbPOST")
     public String fill2And3VerbPOST(@RequestParam int limitVerbs, HttpSession session) {
+
+        if (limitVerbs > MAX_AMOUNT_VERBS) {
+            return "limitdecide";
+        }
+
         List<IrregularVerb> uniqueIrregularVerbs = irregularVerbService.getUniqueVerbsList(limitVerbs);
+        IrregularVerb randomIrregularVerb = irregularVerbService.getOneIrregularVerbFromUniqueList(uniqueIrregularVerbs);
 
         session.setAttribute("uniqueIrregularVerbs", uniqueIrregularVerbs);
         session.setAttribute("progress", 0);
         session.setAttribute("limit", limitVerbs);
+        session.setAttribute("randomIrregularVerb", randomIrregularVerb);
+
 
         return "redirect:/fill2and3verb";
     }
 
     @GetMapping("/fill2and3verb")
-    public String fill2And3VerbGET(HttpSession session, Model model, HttpServletRequest request) {
+    public String fill2And3VerbGET(@RequestParam(defaultValue = "empty") String answer1, @RequestParam(defaultValue = "empty") String answer2, HttpSession session, Model model, HttpServletRequest request) {
         List<IrregularVerb> uniqueIrregularVerbs = (List<IrregularVerb>) session.getAttribute("uniqueIrregularVerbs");
         int progress = (int) session.getAttribute("progress");
 
-        log.info("{}progress", progress);
-        log.info("randomIrregularVerb {} ", session.getAttribute("randomIrregularVerb"));
+        log.info("{}progress", progress); // TODO delete
+        log.info("randomIrregularVerb {} ", session.getAttribute("randomIrregularVerb")); // TODO delete
 
+        IrregularVerb irregularVerb = (IrregularVerb) session.getAttribute("randomIrregularVerb");
+        if (irregularVerb.getVerb2().equals(answer1) && irregularVerb.getVerb3().equals(answer2)) {
+            uniqueIrregularVerbs.remove(irregularVerb);
+            progress++;
 
-        if (session.getAttribute("randomIrregularVerb") != null) {
-            String answer1 = request.getParameter("answer1");
-            String answer2 = request.getParameter("answer2");
-
-            IrregularVerb irregularVerb = (IrregularVerb) session.getAttribute("randomIrregularVerb");
-            if (irregularVerb.getVerb2().equals(answer1) && irregularVerb.getVerb3().equals(answer2)) {
-                uniqueIrregularVerbs.remove(irregularVerb);
-                progress++;
-
-                if(uniqueIrregularVerbs.size() == 0){
-                    return "congratulations";
-                }
-
-                session.setAttribute("uniqueIrregularVerbs", uniqueIrregularVerbs);
-                session.setAttribute("progress", progress);
+            if (uniqueIrregularVerbs.size() == 0) {
+                return "congratulations";
             }
+
+            session.setAttribute("uniqueIrregularVerbs", uniqueIrregularVerbs);
+            session.setAttribute("progress", progress);
         }
 
         IrregularVerb randomIrregularVerb = irregularVerbService.getOneIrregularVerbFromUniqueList(uniqueIrregularVerbs);
