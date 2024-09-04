@@ -21,13 +21,12 @@ public class IrregularVerbService {
     }
 
 
-    private Set<Integer> setSetWithUniqueNumbers(int limit) {
-        List<IrregularVerb> irregularVerbs = irregularVerbRepository.findAll();
+    private Set<Integer> setSetWithUniqueNumbers(int limit, int allVerbsSize) {
         Set<Integer> uniqueNumbers = new LinkedHashSet<>();
         Random rnd = new Random();
 
         while (uniqueNumbers.size() < limit) {
-            int randomNumber = rnd.nextInt(irregularVerbs.size());
+            int randomNumber = rnd.nextInt(allVerbsSize);
             uniqueNumbers.add(randomNumber);
         }
 
@@ -35,12 +34,14 @@ public class IrregularVerbService {
     }
 
 
-    private List<IrregularVerb> getUniqueVerbsList(Set<Integer> uniqueNumbers) {
+    public List<IrregularVerb> getUniqueVerbsList(int limit) {
         List<IrregularVerb> allIrregularVerbs = irregularVerbRepository.findAll();
         List<IrregularVerb> uniqueVerbs = new ArrayList<>();
 
-        for (Integer randomNumber : uniqueNumbers) {
-            uniqueVerbs.add(allIrregularVerbs.get(randomNumber));
+        Set<Integer> uniqueNumbers = setSetWithUniqueNumbers(limit, allIrregularVerbs.size());
+
+        for (Integer uniqueRandomNumber : uniqueNumbers) {
+            uniqueVerbs.add(allIrregularVerbs.get(uniqueRandomNumber));
         }
 
         return uniqueVerbs;
@@ -53,6 +54,17 @@ public class IrregularVerbService {
         }
         return false;
     }
+
+    public void ifAnswerIsCorrectDeleteThatVerbFromArray(List<IrregularVerb> irregularVerbs) {
+
+    }
+
+    public IrregularVerb getOneIrregularVerbFromUniqueList(List<IrregularVerb> irregularVerbList) {
+        Random rnd = new Random();
+        int randomNumber = rnd.nextInt(irregularVerbList.size());
+        return irregularVerbList.get(randomNumber);
+    }
+
 
     //set progress variable in session //TODO
     public double getProgressInPercent(int progress, int sizeOfIrregularVerbs) {
