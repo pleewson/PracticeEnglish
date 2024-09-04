@@ -3,25 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>All irregular verbs</title>
+    <link href="../static/css/stylesheet.css" th:href="@{/css/stylesheet.css}" rel="stylesheet" />
+
 </head>
 <body>
 
 <a href="/">
-    <button> HOME </button>
-</a></p>
+    <button> HOME</button>
+</a>
+<br>
+<br>
 
-<p>Verb1     Verb2     Verb3     Polish</p>
+<div class="inline">
+    progress:
+    <span th:text="${#ctx.session.progress}"></span>
+    ->
+    <span th:text="${#ctx.session.limit}"></span>
 
-<div id="irregular-verbs-table">
-    <tr th:each="irregularVerbs : ${irregularVerbs}">
-        <td th:text="${irregularVerbs.getVerb1()}"  ></td>
-        <td th:text="${irregularVerbs.getVerb2()}"  ></td>
-        <td th:text="${irregularVerbs.getVerb3()}"  ></td>
-        <td th:text="${irregularVerbs.getVerbInPolish()}"></td>
-        </br>
-        </br>
-    </tr>
 </div>
+
+<p>Verb1 Verb2 Verb3</p>
+
+<form method="get" th:action="@{/fill2and3verb}">
+    <div id="irregular-verbs-table">
+        <span th:text="${#ctx.session.randomIrregularVerb.getVerb1()}"></span>
+        <span> <input type="text" name="answer1"/> </span>
+        <span>  <input type="text" name="answer2"/> </span>
+    </div>
+    <button>Submit!</button>
+</form>
 
 </body>
 </html>
