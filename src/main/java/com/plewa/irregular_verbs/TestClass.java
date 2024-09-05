@@ -1,5 +1,6 @@
 package com.plewa.irregular_verbs;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,5 +14,9 @@ public class TestClass {
         integerList.remove(abc1);
 
         System.out.println(integerList.size() == 0);
+
+        ArrayList<Integer> arrayList = new ArrayList<>();
+
+        System.out.println(arrayList instanceof Serializable);
     }
 }

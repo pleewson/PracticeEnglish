@@ -47,19 +47,7 @@ public class IrregularVerbService {
         return uniqueVerbs;
     }
 
-
-    public boolean checkIfProgressIs100(int progress, int sizeOfIrregularVerbs) {
-        if (progress == sizeOfIrregularVerbs) {
-            return true;
-        }
-        return false;
-    }
-
-    public void ifAnswerIsCorrectDeleteThatVerbFromArray(List<IrregularVerb> irregularVerbs) {
-
-    }
-
-    public IrregularVerb getOneIrregularVerbFromUniqueList(List<IrregularVerb> irregularVerbList) {
+    public IrregularVerb getOneRandomIrregularVerbFromList(List<IrregularVerb> irregularVerbList) {
         Random rnd = new Random();
         int randomNumber = rnd.nextInt(irregularVerbList.size());
         return irregularVerbList.get(randomNumber);
@@ -67,10 +55,10 @@ public class IrregularVerbService {
 
 
     //set progress variable in session //TODO
-    public double getProgressInPercent(int progress, int sizeOfIrregularVerbs) {
-        double progressInPercent = (progress / sizeOfIrregularVerbs) * 100;
-        log.info("ProgressInPercent: {}", progressInPercent);
-        return progressInPercent;
-    }
+//    public double getProgressInPercent(int progress, int sizeOfIrregularVerbs) {
+//        double progressInPercent = (progress / sizeOfIrregularVerbs) * 100;
+//        log.info("ProgressInPercent: {}", progressInPercent);
+//        return progressInPercent;
+//    }
 
 }
