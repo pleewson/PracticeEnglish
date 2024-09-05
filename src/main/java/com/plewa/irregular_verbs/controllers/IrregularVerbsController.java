@@ -16,7 +16,7 @@ import java.util.List;
 @Controller
 public class IrregularVerbsController {
 
-    final static Integer MAX_AMOUNT_VERBS = 69;
+    static final Integer MAX_AMOUNT_VERBS = 69;
     private IrregularVerbService irregularVerbService;
 
     public IrregularVerbsController(IrregularVerbService irregularVerbService) {
@@ -42,7 +42,7 @@ public class IrregularVerbsController {
         }
 
         List<IrregularVerb> uniqueIrregularVerbs = irregularVerbService.getUniqueVerbsList(limitVerbs);
-        IrregularVerb randomIrregularVerb = irregularVerbService.getOneIrregularVerbFromUniqueList(uniqueIrregularVerbs);
+        IrregularVerb randomIrregularVerb = irregularVerbService.getOneRandomIrregularVerbFromList(uniqueIrregularVerbs);
 
         session.setAttribute("uniqueIrregularVerbs", uniqueIrregularVerbs);
         session.setAttribute("progress", 0);
@@ -71,9 +71,43 @@ public class IrregularVerbsController {
             session.setAttribute("progress", progress);
         }
 
-        IrregularVerb randomIrregularVerb = irregularVerbService.getOneIrregularVerbFromUniqueList(uniqueIrregularVerbs);
+        IrregularVerb randomIrregularVerb = irregularVerbService.getOneRandomIrregularVerbFromList(uniqueIrregularVerbs);
         session.setAttribute("randomIrregularVerb", randomIrregularVerb);
 
         return "fillverbs_2and3_limit";
+    }
+
+
+    @GetMapping("/polish-translate-english")
+    public String polishTranslateEnglish(HttpSession session) {
+        List<IrregularVerb> allIrregularVerbs = irregularVerbService.findAll();
+
+        if (session.getAttribute("correctAnswers") == null || session.getAttribute("incorrectAnswers") == null) {
+            session.setAttribute("correctAnswers", 0);
+            session.setAttribute("incorrectAnswers", 0);
+        }
+
+        IrregularVerb randomVerb = irregularVerbService.getOneRandomIrregularVerbFromList(allIrregularVerbs);
+        session.setAttribute("randomVerb", randomVerb);
+
+        return "polish_translate_english";
+    }
+
+
+    @PostMapping("/polish-translate-english/check-answer")
+    public String checkIfAnswerIsCorrectPolishTranslateEnglish(HttpSession session, @RequestParam(defaultValue = "empty") String answer) {
+        IrregularVerb irregularVerb = (IrregularVerb) session.getAttribute("randomVerb");
+
+        if (irregularVerb.getVerb1().equals(answer)) {
+            int correctAnswers = (int) session.getAttribute("correctAnswers");
+            correctAnswers++;
+            session.setAttribute("correctAnswers", correctAnswers);
+        } else {
+            int incorrectAnswers = (int) session.getAttribute("incorrectAnswers");
+            incorrectAnswers++;
+            session.setAttribute("incorrectAnswers", incorrectAnswers);
+        }
+
+        return "redirect:/polish-translate-english";
     }
 }

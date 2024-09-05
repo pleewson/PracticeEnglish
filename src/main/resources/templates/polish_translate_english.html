@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Translate verb</title>
+    <link href="../static/css/stylesheet.css" th:href="@{/css/stylesheet.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<a href="/">
+    <button>HOME</button>
+</a>
+<br>
+<span class="inline">
+Correct: <span th:text="${#ctx.session.correctAnswers}"/>
+Incorrect:<span th:text="${#ctx.session.incorrectAnswers}"/>
+</span>
+
+
+<form method="post" th:action="@{/polish-translate-english/check-answer}">
+    <div class="inline">
+        <span th:text="${#ctx.session.randomVerb.getVerbInPolish()}"> </span>
+        <input type="text" name="answer"/>
+        <button>Submit!</button>
+    </div>
+</form>
+
+</body>
+</html>
