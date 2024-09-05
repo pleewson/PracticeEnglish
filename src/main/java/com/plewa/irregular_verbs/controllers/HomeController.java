@@ -10,7 +10,7 @@ public class HomeController {
     @GetMapping("/")
     public String getHome(HttpSession session){
         session.invalidate();
-        return "home";
+        return "/home";
     }
 
 }
