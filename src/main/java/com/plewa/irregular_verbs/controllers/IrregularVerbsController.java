@@ -8,12 +8,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
 @Slf4j
 @Controller
+@RequestMapping("/irregularverbs")
 public class IrregularVerbsController {
 
     static final Integer MAX_AMOUNT_VERBS = 69;
@@ -23,22 +25,28 @@ public class IrregularVerbsController {
         this.irregularVerbService = irregularVerbService;
     }
 
+    @GetMapping("/home")
+    public String getIrregularVerbsHome(HttpSession session) {
+        session.invalidate();
+        return "irregular_verbs/home";
+    }
+
     @GetMapping("/allIrregularVerbs")
     public String printAllIrregularVerbs(Model model) {
         model.addAttribute("irregularVerbs", irregularVerbService.findAll());
-        return "allverbs";
+        return "irregular_verbs/allverbs";
     }
 
     @GetMapping("/setLimit")
     public String getLimitPage() {
-        return "limitdecide";
+        return "irregular_verbs/limitdecide";
     }
 
     @PostMapping("/fill2and3verbPOST")
     public String fill2And3VerbPOST(@RequestParam int limitVerbs, HttpSession session) {
 
         if (limitVerbs <= 0 || limitVerbs > MAX_AMOUNT_VERBS) {
-            return "limitdecide";
+            return "irregular_verbs/limitdecide";
         }
 
         List<IrregularVerb> uniqueIrregularVerbs = irregularVerbService.getUniqueVerbsList(limitVerbs);
@@ -50,7 +58,7 @@ public class IrregularVerbsController {
         session.setAttribute("randomIrregularVerb", randomIrregularVerb);
 
 
-        return "redirect:/fill2and3verb";
+        return "redirect:/irregularverbs/fill2and3verb";
     }
 
     @GetMapping("/fill2and3verb")
@@ -64,7 +72,7 @@ public class IrregularVerbsController {
             progress++;
 
             if (uniqueIrregularVerbs.isEmpty()) {
-                return "congratulations";
+                return "irregular_verbs/congratulations";
             }
 
             session.setAttribute("uniqueIrregularVerbs", uniqueIrregularVerbs);
@@ -74,8 +82,11 @@ public class IrregularVerbsController {
         IrregularVerb randomIrregularVerb = irregularVerbService.getOneRandomIrregularVerbFromList(uniqueIrregularVerbs);
         session.setAttribute("randomIrregularVerb", randomIrregularVerb);
 
-        return "fillverbs_2and3_limit";
+        return "irregular_verbs/fillverbs_2and3_limit";
     }
+
+
+
 
 
     @GetMapping("/polish-translate-english")
@@ -90,7 +101,7 @@ public class IrregularVerbsController {
         IrregularVerb randomVerb = irregularVerbService.getOneRandomIrregularVerbFromList(allIrregularVerbs);
         session.setAttribute("randomVerb", randomVerb);
 
-        return "polish_translate_english";
+        return "irregular_verbs/polish_translate_english";
     }
 
 
@@ -108,6 +119,6 @@ public class IrregularVerbsController {
             session.setAttribute("incorrectAnswers", incorrectAnswers);
         }
 
-        return "redirect:/polish-translate-english";
+        return "redirect:/irregularverbs/polish-translate-english";
     }
 }

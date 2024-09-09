@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:in="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+im testing json here
+<p id="printanswer"></p>
+<form method="get" action="/jsonTest">
+    text: <input type="text" name="answer">
+    <button>Submit!</button>
+</form>
+
+<script th:inline="javascript">
+    let jsonData = /*[[${answer}]]*/ 'default';
+    console.log(jsonData.answer);
+
+    if(JSON.stringify(jsonData) !== '{}'){
+        if (jsonData.answer == 'correct'){
+            document.addEventListener('DOMContentLoaded',() => {
+                document.getElementById('printanswer').innerText = 'Last Answer was correct:)';
+            })
+        }else{
+            document.addEventListener('DOMContentLoaded',() => {
+                document.getElementById('printanswer').innerText = 'Last Answer was incorrect:(';
+            })
+        }
+    }
+</script>
+
+</body>
+</html>
