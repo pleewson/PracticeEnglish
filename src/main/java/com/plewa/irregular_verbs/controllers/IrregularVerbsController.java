@@ -86,6 +86,9 @@ public class IrregularVerbsController {
     }
 
 
+
+
+
     @GetMapping("/polish-translate-english")
     public String polishTranslateEnglish(HttpSession session) {
         List<IrregularVerb> allIrregularVerbs = irregularVerbService.findAll();
