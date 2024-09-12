@@ -86,9 +86,6 @@ public class IrregularVerbsController {
     }
 
 
-
-
-
     @GetMapping("/polish-translate-english")
     public String polishTranslateEnglish(HttpSession session) {
         List<IrregularVerb> allIrregularVerbs = irregularVerbService.findAll();
@@ -107,16 +104,12 @@ public class IrregularVerbsController {
 
     @PostMapping("/polish-translate-english/check-answer")
     public String checkIfAnswerIsCorrectPolishTranslateEnglish(HttpSession session, @RequestParam(defaultValue = "empty") String answer) {
-        IrregularVerb irregularVerb = (IrregularVerb) session.getAttribute("randomVerb");
+        IrregularVerb randomIrregularVerb = (IrregularVerb) session.getAttribute("randomVerb");
 
-        if (irregularVerb.getVerb1().equals(answer)) {
-            int correctAnswers = (int) session.getAttribute("correctAnswers");
-            correctAnswers++;
-            session.setAttribute("correctAnswers", correctAnswers);
+        if (irregularVerbService.checkIfAnswerWasCorrect(randomIrregularVerb.getVerb1(), answer)) {
+           irregularVerbService.increaseCorrectAnswersInSession(session); // attribute name : "correctAnswers"
         } else {
-            int incorrectAnswers = (int) session.getAttribute("incorrectAnswers");
-            incorrectAnswers++;
-            session.setAttribute("incorrectAnswers", incorrectAnswers);
+            irregularVerbService.increaseIncorrectAnswersInSession(session); // attribute name: "incorrectAnswers"
         }
 
         return "redirect:/irregularverbs/polish-translate-english";

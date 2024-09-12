@@ -18,5 +18,8 @@ public class TestClass {
         ArrayList<Integer> arrayList = new ArrayList<>();
 
         System.out.println(arrayList instanceof Serializable);
+
+
+
     }
 }
