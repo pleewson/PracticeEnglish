@@ -60,6 +60,18 @@ public class IrregularVerbService {
     }
 
 
+    public boolean checkIfTwoAnswersWasCorrect(HttpSession session, String answer1, String answer2) {
+        IrregularVerb irregularRandomVerb = (IrregularVerb) session.getAttribute("randomIrregularVerb");
+
+        if (irregularRandomVerb.getVerb2().equals(answer1) && irregularRandomVerb.getVerb3().equals(answer2)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
     public void increaseCorrectAnswersInSession(HttpSession session) {
         int correctAnswers = (int) session.getAttribute("correctAnswers");
         correctAnswers++;
@@ -74,7 +86,7 @@ public class IrregularVerbService {
     }
 
 
-    public void saveInSessionOneRandomIrregularVerb(HttpSession session){
+    public void saveInSessionOneRandomIrregularVerb(HttpSession session) {
         List<IrregularVerb> allIrregularVerbs = findAll();
         IrregularVerb randomVerb = getOneRandomIrregularVerbFromList(allIrregularVerbs);
         session.setAttribute("randomVerb", randomVerb);
@@ -88,17 +100,31 @@ public class IrregularVerbService {
     }
 
 
-    public void redirectJsonInModelWithIncorrectOutput(RedirectAttributes redirectAttributes){
+    public void saveJsonInModelWithIncorrectOutput(RedirectAttributes redirectAttributes) {
         Map<String, String> mapJSON = new HashMap<>();
         mapJSON.put("previousAnswer", "incorrect");
-        redirectAttributes.addFlashAttribute("previousAnswer",mapJSON);
+        redirectAttributes.addFlashAttribute("previousAnswer", mapJSON);
     }
 
 
-    public void redirectJsonInModelWithCorrectOutput(RedirectAttributes redirectAttributes){
+    public void saveJsonInModelWithIncorrectOutput(Model model) {
+        Map<String, String> mapJSON = new HashMap<>();
+        mapJSON.put("previousAnswer", "incorrect");
+        model.addAttribute("previousAnswer", mapJSON);
+    }
+
+
+    public void saveJsonInModelWithCorrectOutput(RedirectAttributes redirectAttributes) {
         Map<String, String> mapJSON = new HashMap<>();
         mapJSON.put("previousAnswer", "correct");
-        redirectAttributes.addFlashAttribute("previousAnswer",mapJSON);
+        redirectAttributes.addFlashAttribute("previousAnswer", mapJSON);
+    }
+
+
+    public void saveJsonInModelWithCorrectOutput(Model model) {
+        Map<String, String> mapJSON = new HashMap<>();
+        mapJSON.put("previousAnswer", "correct");
+        model.addAttribute("previousAnswer", mapJSON);
     }
 
 
