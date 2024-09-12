@@ -20,7 +20,7 @@ im testing json here
     console.log(jsonData.answer);
 
     if(JSON.stringify(jsonData) !== '{}'){
-        if (jsonData.answer == 'correct'){
+        if (jsonData.answer === 'correct'){
             document.addEventListener('DOMContentLoaded',() => {
                 document.getElementById('printanswer').innerText = 'Last Answer was correct:)';
             })
