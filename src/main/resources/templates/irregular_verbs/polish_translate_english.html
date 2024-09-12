@@ -12,8 +12,7 @@
 </a>
 <br>
 
-<!--TODO add .js-->
-<span>Last answer was: //TODO</span>
+<p id="previous-answer"> </p>
 <br>
 
 <span class="inline">
@@ -29,6 +28,24 @@ Incorrect:<span th:text="${#ctx.session.incorrectAnswers}"/>
         <button>Submit!</button>
     </div>
 </form>
+
+
+<script th:inline="javascript">
+    let jsonData = /*[[${previousAnswer}]]*/ 'default';
+    console.log(jsonData);
+
+    if(JSON.stringify(jsonData) !== '{}'){
+        if (jsonData.previousAnswer === 'correct'){
+            document.addEventListener('DOMContentLoaded',() => {
+                document.getElementById('previous-answer').innerText = 'Last Answer was correct:)';
+            })
+        }else if(jsonData.previousAnswer === 'incorrect'){
+            document.addEventListener('DOMContentLoaded',() => {
+                document.getElementById('previous-answer').innerText = 'Last Answer was incorrect:(';
+            })
+        }
+    }
+</script>
 
 </body>
 </html>

@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Controller
@@ -86,37 +89,30 @@ public class IrregularVerbsController {
     }
 
 
-
-
-
     @GetMapping("/polish-translate-english")
     public String polishTranslateEnglish(HttpSession session) {
-        List<IrregularVerb> allIrregularVerbs = irregularVerbService.findAll();
 
         if (session.getAttribute("correctAnswers") == null || session.getAttribute("incorrectAnswers") == null) {
             session.setAttribute("correctAnswers", 0);
             session.setAttribute("incorrectAnswers", 0);
         }
 
-        IrregularVerb randomVerb = irregularVerbService.getOneRandomIrregularVerbFromList(allIrregularVerbs);
-        session.setAttribute("randomVerb", randomVerb);
+        irregularVerbService.saveInSessionOneRandomIrregularVerb(session); // attribute name: "randomVerb"
 
         return "irregular_verbs/polish_translate_english";
     }
 
 
     @PostMapping("/polish-translate-english/check-answer")
-    public String checkIfAnswerIsCorrectPolishTranslateEnglish(HttpSession session, @RequestParam(defaultValue = "empty") String answer) {
-        IrregularVerb irregularVerb = (IrregularVerb) session.getAttribute("randomVerb");
+    public String checkIfAnswerIsCorrectPolishTranslateEnglish(RedirectAttributes redirectAttributes, HttpSession session, @RequestParam(defaultValue = "empty") String answer) {
+        IrregularVerb randomIrregularVerb = (IrregularVerb) session.getAttribute("randomVerb");
 
-        if (irregularVerb.getVerb1().equals(answer)) {
-            int correctAnswers = (int) session.getAttribute("correctAnswers");
-            correctAnswers++;
-            session.setAttribute("correctAnswers", correctAnswers);
+        if (irregularVerbService.checkIfAnswerWasCorrect(randomIrregularVerb.getVerb1(), answer)) {
+            irregularVerbService.increaseCorrectAnswersInSession(session); // attribute name: "correctAnswers"
+            irregularVerbService.redirectJsonInModelWithCorrectOutput(redirectAttributes); // attribute name: "previousAnswer"
         } else {
-            int incorrectAnswers = (int) session.getAttribute("incorrectAnswers");
-            incorrectAnswers++;
-            session.setAttribute("incorrectAnswers", incorrectAnswers);
+            irregularVerbService.increaseIncorrectAnswersInSession(session); // attribute name: "incorrectAnswers"
+            irregularVerbService.redirectJsonInModelWithIncorrectOutput(redirectAttributes); // attribute name: "previousAnswer"
         }
 
         return "redirect:/irregularverbs/polish-translate-english";

@@ -14,12 +14,13 @@ im testing json here
     <button>Submit!</button>
 </form>
 
+
 <script th:inline="javascript">
     let jsonData = /*[[${answer}]]*/ 'default';
     console.log(jsonData.answer);
 
     if(JSON.stringify(jsonData) !== '{}'){
-        if (jsonData.answer == 'correct'){
+        if (jsonData.answer === 'correct'){
             document.addEventListener('DOMContentLoaded',() => {
                 document.getElementById('printanswer').innerText = 'Last Answer was correct:)';
             })
@@ -30,6 +31,7 @@ im testing json here
         }
     }
 </script>
+
 
 </body>
 </html>
