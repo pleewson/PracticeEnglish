@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>All irregular verbs</title>
-    <link href="../../static/css/stylesheet.css" th:href="@{../../static/css/stylesheet.css}" rel="stylesheet" />
+    <link href="../../static/css/stylesheet.css" th:href="@{../../static/css/stylesheet.css}" rel="stylesheet"/>
 
 </head>
 <body>
@@ -14,8 +14,7 @@
 <br>
 <br>
 
-<!--TODO add .js-->
-<span id="lastAnswer">Last answer was: //TODO</span>
+<p id="previous-answer"></p>
 </br>
 
 <div class="inline">
@@ -28,7 +27,7 @@
 
 <p>Verb1 Verb2 Verb3</p>
 
-<form method="get" th:action="@{/irregularverbs/fill2and3verb}">
+<form method="post" th:action="@{/irregularverbs/check-if-two-answers-are-correct}">
     <div id="irregular-verbs-table">
         <span th:text="${#ctx.session.randomIrregularVerb.getVerb1()}"></span>
         <span> <input type="text" name="answer1"/> </span>
@@ -36,6 +35,24 @@
     </div>
     <button>Submit!</button>
 </form>
+
+<script th:inline="javascript">
+    let jsonData = /*[[${previousAnswer}]]*/ 'default';
+    console.log(jsonData);
+
+    if (JSON.stringify(jsonData) !== '{}') {
+        if (jsonData.previousAnswer === 'correct') {
+            document.addEventListener('DOMContentLoaded', () => {
+                document.getElementById('previous-answer').innerText = 'Last Answer was correct:)';
+            })
+        } else if (jsonData.previousAnswer === 'incorrect') {
+            document.addEventListener('DOMContentLoaded', () => {
+                document.getElementById('previous-answer').innerText = 'Last Answer was incorrect:(';
+            })
+        }
+    }
+</script>
+
 
 </body>
 </html>

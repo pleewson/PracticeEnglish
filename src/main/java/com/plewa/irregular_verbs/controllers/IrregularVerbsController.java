@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Slf4j
 @Controller
@@ -28,11 +26,13 @@ public class IrregularVerbsController {
         this.irregularVerbService = irregularVerbService;
     }
 
+
     @GetMapping("/home")
     public String getIrregularVerbsHome(HttpSession session) {
         session.invalidate();
         return "irregular_verbs/home";
     }
+
 
     @GetMapping("/allIrregularVerbs")
     public String printAllIrregularVerbs(Model model) {
@@ -40,10 +40,12 @@ public class IrregularVerbsController {
         return "irregular_verbs/allverbs";
     }
 
+
     @GetMapping("/setLimit")
     public String getLimitPage() {
         return "irregular_verbs/limitdecide";
     }
+
 
     @PostMapping("/fill2and3verbPOST")
     public String fill2And3VerbPOST(@RequestParam int limitVerbs, HttpSession session) {
@@ -64,28 +66,40 @@ public class IrregularVerbsController {
         return "redirect:/irregularverbs/fill2and3verb";
     }
 
+
     @GetMapping("/fill2and3verb")
-    public String fill2And3VerbGET(@RequestParam(defaultValue = "empty") String answer1, @RequestParam(defaultValue = "empty") String answer2, HttpSession session) {
-        List<IrregularVerb> uniqueIrregularVerbs = (List<IrregularVerb>) session.getAttribute("uniqueIrregularVerbs");
+    public String fill2And3VerbGET(@RequestParam(defaultValue = "empty") String answer1, @RequestParam(defaultValue = "empty") String answer2, HttpSession session, Model model) {
+
+        return "irregular_verbs/fillverbs_2and3_limit";
+    }
+
+
+    @PostMapping("/check-if-two-answers-are-correct")
+    public String checkIfTwoAnswersAreCorrectInfill2And3Verb(@RequestParam(defaultValue = "empty") String answer1, @RequestParam(defaultValue = "empty") String answer2, HttpSession session, RedirectAttributes redirectAttributes){
+        List<IrregularVerb> uniqueIrregularVerbsList = (List<IrregularVerb>) session.getAttribute("uniqueIrregularVerbs");
         IrregularVerb irregularVerb = (IrregularVerb) session.getAttribute("randomIrregularVerb");
         int progress = (int) session.getAttribute("progress");
 
-        if (irregularVerb.getVerb2().equals(answer1) && irregularVerb.getVerb3().equals(answer2)) {
-            uniqueIrregularVerbs.remove(irregularVerb);
+        if (irregularVerbService.checkIfTwoAnswersWasCorrect(session,answer1,answer2)) {
+            uniqueIrregularVerbsList.remove(irregularVerb);
             progress++;
 
-            if (uniqueIrregularVerbs.isEmpty()) {
+            if (uniqueIrregularVerbsList.isEmpty()) {
                 return "irregular_verbs/congratulations";
             }
 
-            session.setAttribute("uniqueIrregularVerbs", uniqueIrregularVerbs);
+            session.setAttribute("uniqueIrregularVerbs", uniqueIrregularVerbsList);
             session.setAttribute("progress", progress);
+            irregularVerbService.saveJsonInModelWithCorrectOutput(redirectAttributes); // attribute name: "previousAnswer"
+
+        }else{
+            irregularVerbService.saveJsonInModelWithIncorrectOutput(redirectAttributes); // attribute name: "previousAnswer"
         }
 
-        IrregularVerb randomIrregularVerb = irregularVerbService.getOneRandomIrregularVerbFromList(uniqueIrregularVerbs);
+        IrregularVerb randomIrregularVerb = irregularVerbService.getOneRandomIrregularVerbFromList(uniqueIrregularVerbsList);
         session.setAttribute("randomIrregularVerb", randomIrregularVerb);
 
-        return "irregular_verbs/fillverbs_2and3_limit";
+        return "redirect:/irregularverbs/fill2and3verb";
     }
 
 
@@ -109,10 +123,10 @@ public class IrregularVerbsController {
 
         if (irregularVerbService.checkIfAnswerWasCorrect(randomIrregularVerb.getVerb1(), answer)) {
             irregularVerbService.increaseCorrectAnswersInSession(session); // attribute name: "correctAnswers"
-            irregularVerbService.redirectJsonInModelWithCorrectOutput(redirectAttributes); // attribute name: "previousAnswer"
+            irregularVerbService.saveJsonInModelWithIncorrectOutput(redirectAttributes); // attribute name: "previousAnswer"
         } else {
             irregularVerbService.increaseIncorrectAnswersInSession(session); // attribute name: "incorrectAnswers"
-            irregularVerbService.redirectJsonInModelWithIncorrectOutput(redirectAttributes); // attribute name: "previousAnswer"
+            irregularVerbService.saveJsonInModelWithCorrectOutput(redirectAttributes); // attribute name: "previousAnswer"
         }
 
         return "redirect:/irregularverbs/polish-translate-english";
