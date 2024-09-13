@@ -1,0 +1,6 @@
+INSERT INTO category (name) value ('animal')
+INSERT INTO category (name) value ('food')
+
+
+INSERT INTO thing (english_name, polish_name, src, category_id) VALUES
+                                                                    ('cow','krowa','/images/things/animals/cow.jpg',1);

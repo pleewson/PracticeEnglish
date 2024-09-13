@@ -1,8 +1,8 @@
-.inline{
+.inline {
     display: inline-block;
 }
 
-.center{
+.center {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,8 +10,18 @@
     gap: 8px;
 }
 
-.title{
+.title {
     display: flex;
     justify-content: center;
     font-size: 40px;
 }
+
+.image {
+    margin: auto;
+    display: block;
+}
+
+.pink {
+    color: pink;
+}
+

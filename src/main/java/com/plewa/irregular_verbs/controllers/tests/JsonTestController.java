@@ -1,4 +1,4 @@
-package com.plewa.irregular_verbs.controllers;
+package com.plewa.irregular_verbs.controllers.tests;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
