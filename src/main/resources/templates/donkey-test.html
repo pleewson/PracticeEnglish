@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -7,12 +7,18 @@
 
 </head>
 <body>
-<h1 class="pink">donkey-test</h1>
-<p class="pink" th:text="${donkey.getEnglishName()}"></p>
-<p th:text="${donkey.getPolishName()}"></p>
+<!--<h1 class="pink">donkey-test</h1>-->
+<!--<p class="pink" th:text="${donkey.getEnglishName()}"></p>-->
+<!--<p th:text="${donkey.getPolishName()}"></p>-->
 
 <img class="image" th:src="@{${donkey.getSrc()}}"/>
 <!--<img th:src="@{images/things/animals/donkey.jpg}" alt="donkey">-->
+<!--<form>-->
+<div class="center">
+Englih: <input type="text">
+<button type="submit">Submit!</button>
+</div>
+<!--</form>-->
 
 </body>
 </html>

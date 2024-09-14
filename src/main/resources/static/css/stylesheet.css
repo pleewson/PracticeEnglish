@@ -19,7 +19,10 @@
 .image {
     margin: auto;
     display: block;
+    height: 650px;
+    width: 650px;
 }
+
 
 .pink {
     color: pink;

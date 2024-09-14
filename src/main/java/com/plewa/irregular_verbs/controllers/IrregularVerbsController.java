@@ -68,7 +68,7 @@ public class IrregularVerbsController {
 
 
     @GetMapping("/fill2and3verb")
-    public String fill2And3VerbGET(@RequestParam(defaultValue = "empty") String answer1, @RequestParam(defaultValue = "empty") String answer2, HttpSession session, Model model) {
+    public String fill2And3VerbGET() {
 
         return "irregular_verbs/fillverbs_2and3_limit";
     }
