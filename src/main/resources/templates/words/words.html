@@ -8,14 +8,13 @@
 <body>
 
 <h1> hej </h1>
-<img class="image" th:src="@{${randomThing.getSrc()}}"/>
+<img class="image" th:src="@{${#ctx.session.randomAnimal.getSrc}}"/>
 <!--<p th:text="${randomThing.getPolishName()}"></p>-->
 <!--<p th:text="${randomThing.getEnglishName()}"></p>-->
 
 <div class="center">
-    <form method="post" th:action="@{/words/check-if-answer-is-correct-animals}" th:object="${randomThing}">
-<!--        <input type="hidden" th:value="${randomThing}" name="randomThing25">-->
-        English: <input type="text" name="answer">
+    <form method="post" th:action="@{/words/check-if-answer-is-correct-animals}">
+        <label> English: <input type="text" name="answer"> </label>
         <button type="submit">Submit!</button>
     </form>
 </div>
