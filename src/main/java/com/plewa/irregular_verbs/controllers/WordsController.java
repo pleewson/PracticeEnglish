@@ -7,10 +7,7 @@ import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
@@ -37,7 +34,7 @@ public class WordsController {
         List<Thing> animals = thingService.getAllAnimals();
         session.setAttribute("things", animals);
         Thing randomAnimal = thingService.getOneRandomThingFromList(animals);
-//        log.info("POST randomAnimal {}", randomAnimal.getPolishName());
+        log.info("POST randomAnimal {}", randomAnimal.getPolishName());
         redirectAttributes.addFlashAttribute("randomThing", randomAnimal);
 
         return "redirect:/words/animals";
@@ -50,18 +47,19 @@ public class WordsController {
 
         Thing animal = (Thing) model.getAttribute("randomThing");
         model.addAttribute("randomThing",animal);
-//        log.info("GET randomAnimal {}", animal.getPolishName());
-//        log.info("animals left: {}", animals.size());
+        log.info("GET randomAnimal {}", animal.getPolishName());
+        log.info("animals left: {}", animals.size());
         return "words/words";
     }
 
 
     @PostMapping("/check-if-answer-is-correct-animals")
-    public String checkIfAnswerIsCorrectAnimals(@RequestParam(defaultValue = "empty") String answer, Model model, HttpSession session, RedirectAttributes redirectAttributes) {
-        Thing animal = (Thing) model.getAttribute("randomThing");
+    public String checkIfAnswerIsCorrectAnimals(@RequestParam(defaultValue = "empty") String answer, HttpSession session, RedirectAttributes redirectAttributes, @ModelAttribute Thing randomThing) {
+        Thing animal = randomThing;
         List<Thing> animals = (List<Thing>) session.getAttribute("things");
-
+        log.info("does this animal is empty? {} ", randomThing);
         if (animal.getEnglishName().equals(answer)) {
+            log.info("the answer was correct");
             //send info that answer was correct TODO
             animals.remove(animal);
 
@@ -71,6 +69,8 @@ public class WordsController {
 
             session.setAttribute("things", animals);
         }
+
+        log.info("the answer wasn't correct");
 
         Thing randomAnimal = thingService.getOneRandomThingFromList(animals);
         redirectAttributes.addFlashAttribute("randomThing", randomAnimal);
