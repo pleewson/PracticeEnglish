@@ -8,13 +8,14 @@ import java.util.List;
 import java.util.Random;
 
 @Service
-public class ThingService {
+public class ThingService extends JsonOperation {
     private ThingRepository thingRepository;
-    public ThingService(ThingRepository thingRepository){
+
+    public ThingService(ThingRepository thingRepository) {
         this.thingRepository = thingRepository;
     }
 
-    public List<Thing> getAllThingsByCategory(String categoryName){
+    public List<Thing> getAllThingsByCategory(String categoryName) {
         List<Thing> allThings = thingRepository.findAllByCategoryName(categoryName);
         return allThings;
     }

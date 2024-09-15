@@ -12,7 +12,7 @@ import java.util.*;
 
 @Service
 @Slf4j
-public class IrregularVerbService {
+public class IrregularVerbService extends JsonOperation{
     private IrregularVerbRepository irregularVerbRepository;
 
     public IrregularVerbService(IrregularVerbRepository irregularVerbRepository) {
@@ -98,35 +98,6 @@ public class IrregularVerbService {
         int randomNumber = rnd.nextInt(irregularVerbList.size());
         return irregularVerbList.get(randomNumber);
     }
-
-
-    public void saveJsonInModelWithIncorrectOutput(RedirectAttributes redirectAttributes) {
-        Map<String, String> mapJSON = new HashMap<>();
-        mapJSON.put("previousAnswer", "incorrect");
-        redirectAttributes.addFlashAttribute("previousAnswer", mapJSON);
-    }
-
-
-    public void saveJsonInModelWithIncorrectOutput(Model model) {
-        Map<String, String> mapJSON = new HashMap<>();
-        mapJSON.put("previousAnswer", "incorrect");
-        model.addAttribute("previousAnswer", mapJSON);
-    }
-
-
-    public void saveJsonInModelWithCorrectOutput(RedirectAttributes redirectAttributes) {
-        Map<String, String> mapJSON = new HashMap<>();
-        mapJSON.put("previousAnswer", "correct");
-        redirectAttributes.addFlashAttribute("previousAnswer", mapJSON);
-    }
-
-
-    public void saveJsonInModelWithCorrectOutput(Model model) {
-        Map<String, String> mapJSON = new HashMap<>();
-        mapJSON.put("previousAnswer", "correct");
-        model.addAttribute("previousAnswer", mapJSON);
-    }
-
 
     //set progress variable in session //TODO
 //    public double getProgressInPercent(int progress, int sizeOfIrregularVerbs) {

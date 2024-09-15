@@ -16,12 +16,12 @@ import java.util.List;
 @Slf4j
 @RequestMapping("/words")
 public class WordsController {
-
     private ThingService thingService;
 
     public WordsController(ThingService thingService) {
         this.thingService = thingService;
     }
+
 
     @GetMapping("/home")
     public String getHome() {
@@ -29,20 +29,9 @@ public class WordsController {
     }
 
 
-//    @PostMapping("/animalsPOST")
-//    public String checkAnswerPOST(HttpSession session) {
-//        List<Thing> animals = thingService.getAllAnimals();
-//        Thing randomAnimal = thingService.getOneRandomThingFromList(animals);
-//        session.setAttribute("things", animals);
-//        session.setAttribute("randomAnimal", randomAnimal);
-//
-//        return "redirect:/words/animals";
-//    }
-
-
     @PostMapping("/wordsPOST")
     public String wordsPOST(HttpSession session, @RequestParam String categoryName) {
-        log.info("categoryName {}",categoryName);
+        log.info("categoryName {}", categoryName);
         List<Thing> allThings = thingService.getAllThingsByCategory(categoryName);
         log.info("list size {} ", allThings.size());
         Thing randomThing = thingService.getOneRandomThingFromList(allThings);
@@ -53,7 +42,6 @@ public class WordsController {
     }
 
 
-
     @GetMapping("/words")
     public String getThings() {
         return "words/words";
@@ -61,12 +49,12 @@ public class WordsController {
 
 
     @PostMapping("/check-if-answer-is-correct-words")
-    public String checkIfAnswerIsCorrectPOST(@RequestParam(defaultValue = "empty") String answer, HttpSession session) {
+    public String checkIfAnswerIsCorrectPOST(@RequestParam(defaultValue = "empty") String answer, HttpSession session, RedirectAttributes redirectAttributes) {
         List<Thing> allThings = (List<Thing>) session.getAttribute("allThings");
-        Thing randomThing =  (Thing) session.getAttribute("randomThing");
+        Thing randomThing = (Thing) session.getAttribute("randomThing");
 
         if (randomThing.getEnglishName().equals(answer)) {
-            //send info that answer was correct TODO
+            thingService.saveJsonInModelWithCorrectOutput(redirectAttributes);
             allThings.remove(randomThing);
 
             if (allThings.isEmpty()) {
@@ -74,12 +62,14 @@ public class WordsController {
             }
 
             session.setAttribute("allThings", allThings);
+        } else {
+            thingService.saveJsonInModelWithIncorrectOutput(redirectAttributes);
         }
 
         log.info("things left {} ", allThings.size());
         randomThing = thingService.getOneRandomThingFromList(allThings);
         session.setAttribute("randomThing", randomThing);
 
-        return"redirect:/words/words";
+        return "redirect:/words/words";
     }
 }
