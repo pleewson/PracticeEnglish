@@ -7,12 +7,15 @@
 </head>
 <body>
 
-<img class="image" th:src="@{${#ctx.session.randomAnimal.getSrc}}"/>
-<!--<p th:text="${randomThing.getPolishName()}"></p>-->
+<a class="center" href="/words/home">
+    <button>HOME</button>
+</a>
+
+<img class="image" th:src="@{${#ctx.session.randomThing.getSrc}}"/>
 <!--<p th:text="${randomThing.getEnglishName()}"></p>-->
 
 <div class="center">
-    <form method="post" th:action="@{/words/check-if-answer-is-correct-animals}">
+    <form method="post" th:action="@{/words/check-if-answer-is-correct-words}">
         <label> English: <input type="text" name="answer"> </label>
         <button type="submit">Submit!</button>
     </form>

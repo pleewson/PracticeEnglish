@@ -1,6 +1,5 @@
 package com.plewa.irregular_verbs.service;
 
-import com.plewa.irregular_verbs.entity.IrregularVerb;
 import com.plewa.irregular_verbs.entity.Thing;
 import com.plewa.irregular_verbs.repository.ThingRepository;
 import org.springframework.stereotype.Service;
@@ -15,9 +14,9 @@ public class ThingService {
         this.thingRepository = thingRepository;
     }
 
-    public List<Thing> getAllAnimals(){
-        List<Thing> animals = thingRepository.findAllByCategoryName("animal");
-        return animals;
+    public List<Thing> getAllThingsByCategory(String categoryName){
+        List<Thing> allThings = thingRepository.findAllByCategoryName(categoryName);
+        return allThings;
     }
 
     public Thing getOneRandomThingFromList(List<Thing> things) {

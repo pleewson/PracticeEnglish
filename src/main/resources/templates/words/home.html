@@ -16,13 +16,13 @@
 <span class="title">What type of words you want to train?</span>
 
 <div class="center">
-    <form method="post" th:action="@{/words/animalsPOST}">
-        <button> animals </button>
+    <form method="post" th:action="@{/words/wordsPOST}">
+        <button value="animal" name="categoryName"> animals </button>
     </form>
 
-    <a href="/">
-        <button> food</button>
-    </a>
+    <form method="post" th:action="@{/words/wordsPOST}">
+        <button value="food" name="categoryName"> food </button>
+    </form>
 
     <a href="/">
         <button> things</button>
