@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Translate</title>
+    <link href="../../static/css/stylesheet.css" th:href="@{/css/stylesheet.css}" rel="stylesheet"/>
+
+</head>
+<body>
+
+<div class="center">
+    <a href="/">
+        <button>HOME</button>
+    </a>
+
+    <a href="/translate/PL-EN">
+        <button>POLISH -> ENGLISH</button>
+    </a>
+</div>
+
+<div class="split">
+    <form method="POST" th:action="@{/translate/translateEN-PL}">
+        <div class="split left">
+            <div class="almost-top">
+                <p>ENGLISH:</p>
+                <span>Text to translate:
+                    <textarea class="textarea" name="textToTranslate" th:text="${textToTranslate}"></textarea>
+                </span>
+                <button>Translate!</button>
+            </div>
+        </div>
+
+        <div class="split right">
+            <div class="almost-top">
+                <p>POLISH</p>
+                <p>Translated text:</p>
+                <p th:text="${translatedText}"></p>
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
