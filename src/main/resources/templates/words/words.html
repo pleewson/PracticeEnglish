@@ -13,8 +13,10 @@
 
 <p class="center" id="previous-answer"> </p>
 
+<div>
 <img class="image" th:src="@{${#ctx.session.randomThing.getSrc}}"/>
 <!--<p th:text="${randomThing.getEnglishName()}"></p>-->
+</div>
 
 <div class="center">
     <form method="post" th:action="@{/words/check-if-answer-is-correct-words}">

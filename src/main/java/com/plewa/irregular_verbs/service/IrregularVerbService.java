@@ -99,11 +99,4 @@ public class IrregularVerbService extends JsonOperation{
         return irregularVerbList.get(randomNumber);
     }
 
-    //set progress variable in session //TODO
-//    public double getProgressInPercent(int progress, int sizeOfIrregularVerbs) {
-//        double progressInPercent = (progress / sizeOfIrregularVerbs) * 100;
-//        log.info("ProgressInPercent: {}", progressInPercent);
-//        return progressInPercent;
-//    }
-
 }

@@ -85,7 +85,7 @@ public class IrregularVerbsController {
             progress++;
 
             if (uniqueIrregularVerbsList.isEmpty()) {
-                return "irregular_verbs/congratulations";
+                return "/congratulations";
             }
 
             session.setAttribute("uniqueIrregularVerbs", uniqueIrregularVerbsList);
@@ -123,12 +123,15 @@ public class IrregularVerbsController {
 
         if (irregularVerbService.checkIfAnswerWasCorrect(randomIrregularVerb.getVerb1(), answer)) {
             irregularVerbService.increaseCorrectAnswersInSession(session); // attribute name: "correctAnswers"
-            irregularVerbService.saveJsonInModelWithIncorrectOutput(redirectAttributes); // attribute name: "previousAnswer"
+            irregularVerbService.saveJsonInModelWithCorrectOutput(redirectAttributes); // attribute name: "previousAnswer"
         } else {
             irregularVerbService.increaseIncorrectAnswersInSession(session); // attribute name: "incorrectAnswers"
-            irregularVerbService.saveJsonInModelWithCorrectOutput(redirectAttributes); // attribute name: "previousAnswer"
+            irregularVerbService.saveJsonInModelWithIncorrectOutput(redirectAttributes); // attribute name: "previousAnswer"
         }
 
         return "redirect:/irregularverbs/polish-translate-english";
     }
 }
+
+
+//TODO if appear verb like was/were need to split those for two words and check if any of them was in answer

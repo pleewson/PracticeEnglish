@@ -23,8 +23,32 @@
     width: 650px;
 }
 
-
-.pink {
-    color: pink;
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
 }
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}
+
+.almost-top {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.textarea{
+    width: 200px;
+    height: 50px;
+}
+
+
 
