@@ -9,7 +9,8 @@ PracticeEnglish is a web application designed to help users improve their Englis
    ```bash
    git clone https://github.com/your-username/practiceEnglish.git
 ```
-Run the application:
+
+**Run the application**
 
 **Open the application:**
  Visit http://localhost:8080/home in your browser and follow the instructions on the page.
