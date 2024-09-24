@@ -1,5 +1,7 @@
 # PracticeEnglish
 
+**Status:** In Progress 🚧
+
 ## Overview
 PracticeEnglish is a web application designed to help users improve their English skills by practicing vocabulary, mastering irregular verbs, and using translation tools.
 
