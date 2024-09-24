@@ -15,7 +15,7 @@ PracticeEnglish is a web application designed to help users improve their Englis
 **Run the application**
 
 **Open the application:**
- Visit http://localhost:8080/home in your browser and follow the instructions on the page.
+ Visit http://localhost:8080 in your browser and follow the instructions on the page.
 
 # Features
 
