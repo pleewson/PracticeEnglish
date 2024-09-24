@@ -24,9 +24,13 @@ Run the application:
 # Technologies Used
 
 Thymeleaf – For building dynamic web pages.
+
 MySQL – For the application's database.
+
 Hibernate – For ORM (Object-Relational Mapping) with the database.
+
 Spring Boot (REST API) – For backend development and creating a RESTful API.
+
 Maven – For project management and dependency handling.
 
 **External Translation API** – For word translation services.
