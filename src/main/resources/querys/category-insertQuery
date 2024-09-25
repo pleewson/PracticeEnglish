@@ -4,3 +4,12 @@ INSERT INTO category (name) value ('food')
 
 INSERT INTO thing (english_name, polish_name, src, category_id) VALUES
                                                                     ('cow','krowa','/images/things/animals/cow.jpg',1);
+
+insert into thing (english_name, polish_name, src, category_id) VALUES
+                        ('camel','wielbłąd','/images/things/animals/camel.jpg',1),
+                        ('gorilla','goryl','/images/things/animals/gorilla.jpg',1),
+                        ('kangaroo','kangur','/images/things/animals/kangaroo.jpg',1),
+                        ('monkey','małpa','/images/things/animals/monkey.jpg',1),
+                        ('rhino','nosorożec','/images/things/animals/rhino.jpg',1),
+                        ('shark','rekin','/images/things/animals/shark.jpg',1),
+                        ('walrus','mors','/images/things/animals/walrus.jpg',1);
