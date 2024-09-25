@@ -27,6 +27,12 @@ Use the following command to restore the database from the provided backup:
   ```bash
 mysql -u root -p practice_english_db < backup.sql
 ```
+
+Update the application.properties file in src/main/resources with your database username and password:
+
+spring.datasource.url=jdbc:mysql://localhost:3306/practice_english_db
+spring.datasource.username=your_username
+spring.datasource.password=your_password
 This will load all the necessary tables and data into your MySQL instance.
 
 **Run the application**
