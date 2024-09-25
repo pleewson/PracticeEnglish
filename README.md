@@ -12,6 +12,18 @@ PracticeEnglish is a web application designed to help users improve their Englis
    git clone https://github.com/your-username/practiceEnglish.git
 ```
 
+**Database Setup**
+To correctly set up the database with the necessary data for the application to function properly, you can use the provided SQL backup. This will pre-populate the database with the required vocabulary, irregular verbs, and other data.
+
+Steps to restore the database:
+
+Ensure that MySQL is running on your system.
+Use the following command to restore the database from the provided backup:
+  ```bash
+mysql -u root -p practice_english_db < backup.sql
+```
+This will load all the necessary tables and data into your MySQL instance.
+
 **Run the application**
 
 **Open the application:**
