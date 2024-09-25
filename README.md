@@ -18,6 +18,11 @@ To correctly set up the database with the necessary data for the application to 
 Steps to restore the database:
 
 Ensure that MySQL is running on your system.
+Create the database:
+```bash
+CREATE DATABASE practice_english_db;
+```
+
 Use the following command to restore the database from the provided backup:
   ```bash
 mysql -u root -p practice_english_db < backup.sql
