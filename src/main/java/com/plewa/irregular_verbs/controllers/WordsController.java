@@ -68,6 +68,10 @@ public class WordsController {
         randomThing = thingService.getOneRandomThingFromList(allThings);
         session.setAttribute("randomThing", randomThing);
 
+        log.info("this is -> {}", randomThing.getEnglishName());
+
         return "redirect:/words/words";
     }
 }
+
+//todo change display if answer was correct, to enter next word press button.

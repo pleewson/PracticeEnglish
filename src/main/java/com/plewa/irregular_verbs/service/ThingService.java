@@ -25,6 +25,4 @@ public class ThingService extends JsonOperation {
         int randomNumber = rnd.nextInt(things.size());
         return things.get(randomNumber);
     }
-
-
 }
