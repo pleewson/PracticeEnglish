@@ -13,7 +13,6 @@ import java.util.Map;
 @Slf4j
 public class JsonTestController {
 
-
     @GetMapping("/jsonTest")
     public String jsonAnswer(@RequestParam(defaultValue = "default") String answer, Model model) {
         Map<String, String> jsonAnswer = new HashMap<>();
@@ -30,5 +29,4 @@ public class JsonTestController {
         model.addAttribute("answer",jsonAnswer);
         return "irregular_verbs/test";
     }
-
 }

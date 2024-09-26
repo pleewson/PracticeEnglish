@@ -5,8 +5,6 @@ import com.plewa.irregular_verbs.repository.IrregularVerbRepository;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.*;
 
@@ -71,7 +69,6 @@ public class IrregularVerbService extends JsonOperation{
     }
 
 
-
     public void increaseCorrectAnswersInSession(HttpSession session) {
         int correctAnswers = (int) session.getAttribute("correctAnswers");
         correctAnswers++;
@@ -98,5 +95,4 @@ public class IrregularVerbService extends JsonOperation{
         int randomNumber = rnd.nextInt(irregularVerbList.size());
         return irregularVerbList.get(randomNumber);
     }
-
 }

@@ -23,8 +23,6 @@ public class TranslatorController {
 
     @GetMapping("/PL-EN")
     public String getTranslatePolishToEnglish(Model model) {
-//        model.addAttribute("translatedText");
-//        model.addAttribute("textToTranslate");
         return "translator/translator_polish_to_english";
     }
 
@@ -42,9 +40,7 @@ public class TranslatorController {
 
 
     @GetMapping("/EN-PL")
-    public String getTranslateEnglishToPolish(Model model) {
-//        model.addAttribute("translatedText");
-//        model.addAttribute("textToTranslate");
+    public String getTranslateEnglishToPolish() {
         return "translator/translator_english_to_polish";
     }
 

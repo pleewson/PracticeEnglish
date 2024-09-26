@@ -7,7 +7,6 @@ import lombok.Getter;
 @Getter
 @Table(name = "irregular_verbs")
 public class IrregularVerb {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
